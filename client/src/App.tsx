@@ -5,7 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 import { MainNav } from "@/components/main-nav";
-import NotFound from "@/pages/not-found";
+// Remove this line
+// import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Game from "@/pages/game";
 import AuthPage from "@/pages/auth-page";
@@ -22,7 +23,8 @@ function Router() {
         <ProtectedRoute path="/rankings" component={Rankings} />
         <Route path="/proxy" component={ProxyPage} />
         <Route path="/auth" component={AuthPage} />
-        <Route component={NotFound} />
+        {/* Remove this line */}
+        {/* <Route component={NotFound} /> */}
       </Switch>
     </div>
   );
