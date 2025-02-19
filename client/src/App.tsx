@@ -12,7 +12,10 @@ import Game from "@/pages/game";
 import AuthPage from "@/pages/auth-page";
 import Rankings from "@/pages/rankings";
 import ProxyPage from "@/pages/proxy";
-
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import "./index.css";
+createRoot(document.getElementById("root")!).render(<App />);
 function Router() {
   return (
     <div className="min-h-screen bg-background">
