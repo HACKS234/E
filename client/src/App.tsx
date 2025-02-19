@@ -5,17 +5,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 import { MainNav } from "@/components/main-nav";
-// Remove this line
-// import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Game from "@/pages/game";
 import AuthPage from "@/pages/auth-page";
 import Rankings from "@/pages/rankings";
 import ProxyPage from "@/pages/proxy";
 import { createRoot } from "react-dom/client";
-import App from "./App";
 import "./index.css";
-createRoot(document.getElementById("root")!).render(<App />);
+
 function Router() {
   return (
     <div className="min-h-screen bg-background">
@@ -26,8 +23,6 @@ function Router() {
         <ProtectedRoute path="/rankings" component={Rankings} />
         <Route path="/proxy" component={ProxyPage} />
         <Route path="/auth" component={AuthPage} />
-        {/* Remove this line */}
-        {/* <Route component={NotFound} /> */}
       </Switch>
     </div>
   );
@@ -43,5 +38,7 @@ function App() {
     </QueryClientProvider>
   );
 }
+
+createRoot(document.getElementById("root")!).render(<App />);
 
 export default App;
