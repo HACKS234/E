@@ -1,0 +1,35 @@
+# netlify.toml
+[build]
+  publish = "dist/public"
+  command = "npm run build"
+
+# index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <link rel="stylesheet" href="assets/index-UrtfbYn3.css">
+</head>
+<body>
+    <div id="app"></div>
+    <script src="assets/index-BxjdMpZC.js"></script>
+</body>
+</html>
+
+# index-UrtfbYn3.css
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+# index-BxjdMpZC.js
+// Add your JavaScript code here
+console.log('Hello, world!');
+
+# _redirects
+/*    /index.html   200
