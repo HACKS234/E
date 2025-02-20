@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 // Middleware to set the correct MIME type for .tsx files
 app.use((req, res, next) => {
   if (req.path.endsWith('.tsx')) {
-    res.setHeader('Content-Type', lookup('.tsx') || 'application/javascript');
+    res.setHeader('Content-Type', 'application/javascript'); // Hardcode MIME type
   }
   next();
 });
@@ -56,7 +56,7 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
+  // Importantly, only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
   if (app.get("env") === "development") {
@@ -66,7 +66,7 @@ app.use((req, res, next) => {
   }
 
   // ALWAYS serve the app on port 5000
-  // this serves both the API and the client
+  // This serves both the API and the client
   const PORT = 5000;
   server.listen(PORT, "0.0.0.0", () => {
     log(`serving on port ${PORT}`);
