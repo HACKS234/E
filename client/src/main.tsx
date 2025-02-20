@@ -31,11 +31,16 @@ function checkFiles() {
 
 // Ensure the site displays correctly
 function displaySite() {
-  createRoot(document.getElementById("root")!).render(
-    <ErrorBoundary>
-      <App />
-    </ErrorBoundary>
-  );
+  const rootElement = document.getElementById("root");
+  if (rootElement) {
+    createRoot(rootElement).render(
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    );
+  } else {
+    console.error("Root element not found");
+  }
 }
 
 // Run checks and display site
