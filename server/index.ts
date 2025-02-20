@@ -7,6 +7,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Middleware to set the correct MIME type for .tsx files
+app.use((req, res, next) => {
+  if (req.path.endsWith('.tsx')) {
+    res.setHeader('Content-Type', 'application/javascript'); // Hardcode MIME type
+  }
+  next();
+});
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -34,14 +42,6 @@ app.use((req, res, next) => {
     }
   });
 
-  next();
-});
-
-// Middleware to set the correct MIME type for .tsx files
-app.use((req, res, next) => {
-  if (req.path.endsWith('.tsx')) {
-    res.setHeader('Content-Type', 'application/javascript'); // Hardcode MIME type
-  }
   next();
 });
 
