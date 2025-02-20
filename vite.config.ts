@@ -7,17 +7,28 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 export default defineConfig({
   plugins: [react(), runtimeErrorOverlay(), themePlugin()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
       "@shared": path.resolve(__dirname, "shared"),
+      "@ui": path.resolve(__dirname, "ui"),
+      "@components": path.resolve(__dirname, "components"),
+      "@hooks": path.resolve(__dirname, "hooks"),
+      "@lib": path.resolve(__dirname, "lib"),
     },
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "client/index.html"),
+        ui: path.resolve(__dirname, "ui/index.html"), // Add additional entry points here
+      },
+    },
   },
 });
